@@ -2,6 +2,8 @@
 
 import timer from "./modules/timer";
 import menu from "./modules/menu";
+import modal from "./modules/modal";
 
-timer("23 march 2022");
+timer("24 march 2022");
 menu();
+modal();

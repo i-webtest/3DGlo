@@ -41,31 +41,19 @@ const timer = (deadline) => {
       timerSeconds.textContent = "00";
     }
 
-    // if (getTime.timeRemaining > 0) {
-    //   setInterval(updateClock, 1000);
-    // }
-
-    // setInterval(() => {
+    // const timerId = setInterval(() => {
     //   if (getTime.timeRemaining > 0) {
     //     updateClock();
     //   }
     // }, 1000);
 
-    // if (getTime.timeRemaining > 0) {
-    //   setTimeout(updateClock, 1000);
-    // }
-
-    const timerId = setInterval(() => {
-      if (getTime.timeRemaining > 0) {
-        updateClock();
-      }
-    }, 1000);
-
-    setTimeout(() => {
-      clearInterval(timerId);
-    }, 1000);
+    // setTimeout(() => {
+    //   clearInterval(timerId);
+    // }, 1000);
   };
   updateClock();
+
+  setInterval(updateClock, 1000);
 };
 
 export default timer;
