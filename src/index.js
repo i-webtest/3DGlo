@@ -1,7 +1,7 @@
 "use script";
 
-import one from "./modules/one";
-import two from "./modules/two";
+import timer from "./modules/timer";
+// import two from "./modules/two";
 
-one();
-two();
+timer("23 march 2022");
+// two();

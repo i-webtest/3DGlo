@@ -1,7 +1,7 @@
 "use strict";
 
 const twoModule = () => {
-  const two = "two.js";
+  const two = "two";
 
   console.log(two);
 };
