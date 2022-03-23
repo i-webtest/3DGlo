@@ -41,11 +41,11 @@ const timer = (deadline) => {
       timerSeconds.textContent = "00";
     }
 
-    // const timerId = setInterval(() => {
-    //   if (getTime.timeRemaining > 0) {
-    //     updateClock();
-    //   }
-    // }, 1000);
+    const timerId = setInterval(() => {
+      if (getTime.timeRemaining <= 0) {
+        clearInterval(timerId);
+      }
+    }, 1000);
 
     // setTimeout(() => {
     //   clearInterval(timerId);
