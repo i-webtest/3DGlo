@@ -7,8 +7,6 @@ const modal = () => {
   const popupContent = modal.querySelector(".popup-content");
   const screen = window.screen.width;
 
-  console.log(screen);
-
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       let count = 0;
@@ -18,21 +16,14 @@ const modal = () => {
       popupContent.style.top = -50 + "%";
 
       const myAnimate = () => {
-        count += 3;
+        count++;
         idInterval = requestAnimationFrame(myAnimate);
 
         if (count < 25) {
-          popupContent.style.top = count + "%";
+          popupContent.style.top = -50 + count * 3 + "%";
         } else {
           cancelAnimationFrame(idInterval);
         }
-
-        // if (count < 25) {
-        //   // modal.style.display = "block";
-        //   popupContent.style.top = count + "%";
-        // } else {
-        //   cancelAnimationFrame(idInterval);
-        // }
 
         if (screen < 768) {
           modal.style.display = "block";
