@@ -20,7 +20,6 @@ const timer = (deadline) => {
   };
 
   const updateClock = () => {
-    console.log("Таймер работает!");
     let getTime = getTimeRemaining();
 
     timerHours.textContent = getTime.hours;
