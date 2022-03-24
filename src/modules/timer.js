@@ -5,6 +5,8 @@ const timer = (deadline) => {
   const timerMinutes = document.getElementById("timer-minutes");
   const timerSeconds = document.getElementById("timer-seconds");
 
+  let timerId = 0;
+
   const getTimeRemaining = () => {
     let dateStop = new Date(deadline).getTime();
     let dateNow = new Date().getTime();
@@ -18,7 +20,7 @@ const timer = (deadline) => {
   };
 
   const updateClock = () => {
-    // console.log("qwerty");
+    console.log("Таймер работает!");
     let getTime = getTimeRemaining();
 
     timerHours.textContent = getTime.hours;
@@ -39,21 +41,12 @@ const timer = (deadline) => {
       timerHours.textContent = "00";
       timerMinutes.textContent = "00";
       timerSeconds.textContent = "00";
+      clearInterval(timerId);
     }
-
-    const timerId = setInterval(() => {
-      if (getTime.timeRemaining <= 0) {
-        clearInterval(timerId);
-      }
-    }, 1000);
-
-    // setTimeout(() => {
-    //   clearInterval(timerId);
-    // }, 1000);
   };
   updateClock();
 
-  setInterval(updateClock, 1000);
+  timerId = setInterval(updateClock, 1000);
 };
 
 export default timer;
