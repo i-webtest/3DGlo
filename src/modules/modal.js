@@ -11,22 +11,28 @@ const modal = () => {
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      modal.style.display = "block";
-      // popupContent.style.top = -55 + "%";
-
-      let count = -50;
+      let count = 0;
       let idInterval;
 
+      modal.style.display = "block";
+      popupContent.style.top = -50 + "%";
+
       const myAnimate = () => {
-        count++;
+        count += 3;
         idInterval = requestAnimationFrame(myAnimate);
 
         if (count < 25) {
-          // modal.style.display = "block";
           popupContent.style.top = count + "%";
         } else {
           cancelAnimationFrame(idInterval);
         }
+
+        // if (count < 25) {
+        //   // modal.style.display = "block";
+        //   popupContent.style.top = count + "%";
+        // } else {
+        //   cancelAnimationFrame(idInterval);
+        // }
 
         if (screen < 768) {
           modal.style.display = "block";
