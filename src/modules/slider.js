@@ -41,39 +41,41 @@ const slider = () => {
     clearInterval(interval);
   };
 
-  sliderBlock.addEventListener("click", (e) => {
-    e.preventDefault();
+  if (slides.length > 0) {
+    sliderBlock.addEventListener("click", (e) => {
+      e.preventDefault();
 
-    if (!e.target.matches(".dot, .portfolio-btn")) {
-      return;
-    }
+      if (!e.target.matches(".dot, .portfolio-btn")) {
+        return;
+      }
 
-    prevSlide(slides, currentSlide, "portfolio-item-active");
-    prevSlide(dots, currentSlide, "dot-active");
+      prevSlide(slides, currentSlide, "portfolio-item-active");
+      prevSlide(dots, currentSlide, "dot-active");
 
-    if (e.target.matches("#arrow-right")) {
-      currentSlide++;
-    } else if (e.target.matches("#arrow-left")) {
-      currentSlide--;
-    } else if (e.target.classList.contains("dot")) {
-      dots.forEach((dot, index) => {
-        if (e.target === dot) {
-          currentSlide = index;
-        }
-      });
-    }
+      if (e.target.matches("#arrow-right")) {
+        currentSlide++;
+      } else if (e.target.matches("#arrow-left")) {
+        currentSlide--;
+      } else if (e.target.classList.contains("dot")) {
+        dots.forEach((dot, index) => {
+          if (e.target === dot) {
+            currentSlide = index;
+          }
+        });
+      }
 
-    if (currentSlide >= slides.length) {
-      currentSlide = 0;
-    }
+      if (currentSlide >= slides.length) {
+        currentSlide = 0;
+      }
 
-    if (currentSlide < 0) {
-      currentSlide = slides.length - 1;
-    }
+      if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+      }
 
-    nextSlide(slides, currentSlide, "portfolio-item-active");
-    nextSlide(dots, currentSlide, "dot-active");
-  });
+      nextSlide(slides, currentSlide, "portfolio-item-active");
+      nextSlide(dots, currentSlide, "dot-active");
+    });
+  }
 
   sliderBlock.addEventListener(
     "mouseenter",
@@ -102,12 +104,12 @@ const slider = () => {
       const dot = document.createElement("li");
       dot.classList.add("dot");
 
-      if (item.classList.contains("active")) {
-        dot.classList.add("active");
+      if (item.classList.contains("dot-active")) {
+        dot.classList.add("dot-active");
         currentSlide = index;
       }
+
       portfolioDots.append(dot);
-      // console.log(portfolioDots);
     });
     dots = document.querySelectorAll(".dot");
   };
