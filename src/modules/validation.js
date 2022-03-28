@@ -2,7 +2,7 @@
 
 const validation = () => {
   const inputUserName = document.querySelectorAll("input[type=text]");
-  const calcItems = document.querySelectorAll("input[type=text].calc-item");
+  // const calcItems = document.querySelectorAll("input[type=text].calc-item");
   const inputMessage = document.querySelector(".mess");
   const inputEmail = document.querySelectorAll("input[type=email");
   const inputTel = document.querySelectorAll("input[type=tel]");

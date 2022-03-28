@@ -11,7 +11,7 @@ import slider from "./modules/slider";
 timer("24 march 2022");
 menu();
 modal();
-calculator();
+calculator(100);
 validation();
 tabs();
 slider();
