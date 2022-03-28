@@ -27,7 +27,7 @@ const calculator = (price = 100) => {
     }
 
     if (calcType.value && calcSquare.value) {
-      totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue;
+      totalValue = Math.floor(price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue);
     } else {
       totalValue = 0;
     }
