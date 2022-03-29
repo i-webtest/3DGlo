@@ -10,27 +10,28 @@ const modal = () => {
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      let count = 0;
-      let idInterval;
+      // let count = 0;
+      // let idInterval;
 
       modal.style.display = "block";
       popupContent.style.top = -50 + "%";
 
-      // if (screen > 768) {
-      //   animate({
-      //     duration: 500,
-      //     timing(timeFraction) {
-      //       return timeFraction;
-      //     },
-      //     draw(progress) {
-      //       popupContent.style.top = 30 * progress + "%";
-      //     },
-      //   });
-      // } else {
-      //   modal.style.display = "block";
-      //   popupContent.style.top = 20 + "%";
-      // }
+      if (screen > 768) {
+        animate({
+          duration: 500,
+          timing(timeFraction) {
+            return timeFraction;
+          },
+          draw(progress) {
+            popupContent.style.top = -50 + 80 * progress + "%";
+          },
+        });
+      } else {
+        modal.style.display = "block";
+        popupContent.style.top = 20 + "%";
+      }
 
+      /*
       const myAnimate = (e) => {
         count++;
         idInterval = requestAnimationFrame(myAnimate);
@@ -45,7 +46,6 @@ const modal = () => {
               popupContent.style.top = -50 + 50 * progress + count + "%";
             },
           });
-          // popupContent.style.top = -50 + count * 3 + "%";
         } else {
           cancelAnimationFrame(idInterval);
         }
@@ -63,6 +63,7 @@ const modal = () => {
       };
 
       myAnimate();
+      */
     });
   });
 
