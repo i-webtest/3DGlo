@@ -1,5 +1,7 @@
 "use strict";
 
+import { animate } from "./helpers";
+
 const modal = () => {
   const modal = document.querySelector(".popup");
   const buttons = document.querySelectorAll(".popup-btn");
@@ -8,21 +10,48 @@ const modal = () => {
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      let count = 0;
-      let idInterval;
+      // let count = 0;
+      // let idInterval;
 
       modal.style.display = "block";
-      popupContent.style.top = -50 + "%";
+      // popupContent.style.top = -50 + "%";
 
-      const myAnimate = () => {
+      if (screen > 768) {
+        animate({
+          duration: 500,
+          timing(timeFraction) {
+            return timeFraction;
+          },
+          draw(progress) {
+            popupContent.style.top = 30 * progress + "%";
+          },
+        });
+      } else {
+        modal.style.display = "block";
+        popupContent.style.top = 20 + "%";
+      }
+
+      /*
+      const myAnimate = (e) => {
         count++;
         idInterval = requestAnimationFrame(myAnimate);
 
-        if (count < 25) {
-          popupContent.style.top = -50 + count * 3 + "%";
-        } else {
-          cancelAnimationFrame(idInterval);
-        }
+        animate({
+          duration: 500,
+          timing(timeFraction) {
+            return timeFraction;
+          },
+          draw(progress) {
+            popupContent.style.top = 50 * progress + "%";
+          },
+        });
+
+
+        // if (count < 25) {
+        //   popupContent.style.top = -50 + count * 3 + "%";
+        // } else {
+        //   cancelAnimationFrame(idInterval);
+        // }
 
         if (screen < 768) {
           modal.style.display = "block";
@@ -31,6 +60,7 @@ const modal = () => {
       };
 
       myAnimate();
+      */
     });
   });
 
