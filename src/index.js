@@ -7,6 +7,7 @@ import calculator from "./modules/calculator";
 import validation from "./modules/validation";
 import tabs from "./modules/tabs";
 import slider from "./modules/slider";
+import sendForm from "./modules/sendForm";
 
 timer("24 march 2022");
 menu();
@@ -15,3 +16,12 @@ calculator(100);
 validation();
 tabs();
 slider();
+sendForm({
+  formId: "form1",
+  someElem: [
+    {
+      type: "block",
+      id: "total",
+    },
+  ],
+});
