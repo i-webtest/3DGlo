@@ -14,13 +14,13 @@ const validation = () => {
       });
     } else {
       item.addEventListener("input", (e) => {
-        e.target.value = e.target.value.replace(/[^а-яА-ЯёЁ\-\s]+/i, "");
+        e.target.value = e.target.value.replace(/[^а-яА-ЯёЁ\s]+/i, "");
       });
     }
   });
 
   inputMessage.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^а-яА-ЯёЁ\-\s]+/i, "");
+    e.target.value = e.target.value.replace(/[^а-яА-ЯёЁ\s.,;:'"!?\d]+/i, "");
   });
 
   inputEmail.forEach((item) => {
