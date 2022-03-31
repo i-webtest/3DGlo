@@ -30,40 +30,6 @@ const modal = () => {
         modal.style.display = "block";
         popupContent.style.top = 20 + "%";
       }
-
-      /*
-      const myAnimate = (e) => {
-        count++;
-        idInterval = requestAnimationFrame(myAnimate);
-
-        if (count < 25) {
-          animate({
-            duration: 500,
-            timing(timeFraction) {
-              return timeFraction;
-            },
-            draw(progress) {
-              popupContent.style.top = -50 + 50 * progress + count + "%";
-            },
-          });
-        } else {
-          cancelAnimationFrame(idInterval);
-        }
-
-        // if (count < 25) {
-        //   popupContent.style.top = -50 + count * 3 + "%";
-        // } else {
-        //   cancelAnimationFrame(idInterval);
-        // }
-
-        if (screen < 768) {
-          modal.style.display = "block";
-          popupContent.style.top = 20 + "%";
-        }
-      };
-
-      myAnimate();
-      */
     });
   });
 

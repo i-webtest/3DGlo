@@ -1,6 +1,6 @@
 "use strict";
 
-import maskPhone from "./maskPhone";
+// import maskPhone from "./maskPhone";
 
 const validation = () => {
   const inputUserName = document.querySelectorAll("input[type=text]");
@@ -21,7 +21,7 @@ const validation = () => {
       });
       item.addEventListener("invalid", (e) => {
         e.preventDefault();
-        e.target.value = e.target.value.replace(/[^а-яА-ЯёЁ\s]+/i, "");
+        e.target.style.border = "1px solid red";
       });
     }
   });
@@ -38,7 +38,7 @@ const validation = () => {
     });
     item.addEventListener("invalid", (e) => {
       e.preventDefault();
-      e.target.value = e.target.value.replace(/[^\w@\-.!~*']+/gi, "");
+      e.target.style.border = "1px solid red";
     });
   });
 
@@ -49,7 +49,7 @@ const validation = () => {
     });
     item.addEventListener("invalid", (e) => {
       e.preventDefault();
-      e.target.value = e.target.value.replace(/[^\d+()-]+/gi, "");
+      e.target.style.border = "1px solid red";
     });
   });
 };
@@ -57,4 +57,4 @@ const validation = () => {
 export default validation;
 //import maskPhone from "./modules/maskPhone";
 
-maskPhone();
+// maskPhone();

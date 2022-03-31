@@ -69,7 +69,7 @@ const sendForm = ({ formId, someElem = [] }) => {
 
     formData.forEach((val, key) => {
       formBody[key] = val;
-      console.log(formBody[key]);
+      // console.log(formBody[key]);
     });
 
     someElem.forEach((elem) => {
@@ -129,7 +129,7 @@ const sendForm = ({ formId, someElem = [] }) => {
       submitForm();
     });
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
   }
 };
 
