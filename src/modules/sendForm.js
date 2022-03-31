@@ -14,25 +14,26 @@ const sendForm = ({ formId, someElem = [] }) => {
     let success = true;
 
     list.forEach((item) => {
+      item.style.border = null;
       if (item.name === "user_name") {
         if (item.value.length < 2) {
-          // item.style.border = "1px solid red";
+          item.style.border = "1px solid red";
           success = false;
         }
       } else if (item.name === "user_phone") {
         if (item.value.length < 6 || item.value.length > 16) {
           success = false;
-          // item.style.border = "1px solid red";
+          item.style.border = "1px solid red";
         }
       } else if (item.name === "user_message") {
         if (item.value.length < 2) {
           success = false;
-          // item.style.border = "1px solid red";
+          item.style.border = "1px solid red";
         }
       } else if (item.name === "user_email") {
         if (item.value.length === 0) {
           success = false;
-          // item.style.border = "1px solid red";
+          item.style.border = "1px solid red";
         }
       } else {
         success = true;
@@ -68,14 +69,15 @@ const sendForm = ({ formId, someElem = [] }) => {
 
     formData.forEach((val, key) => {
       formBody[key] = val;
+      console.log(formBody[key]);
     });
 
     someElem.forEach((elem) => {
       const element = document.getElementById(elem.id);
 
-      if (elem.type === "block") {
+      if (elem.type === "block" && +element.textContent) {
         formBody[elem.id] = element.textContent;
-      } else if (elem.type === "input") {
+      } else if (elem.type === "input" && element.value) {
         formBody[elem.id] = element.value;
       }
     });
@@ -96,14 +98,14 @@ const sendForm = ({ formId, someElem = [] }) => {
           statusBlock.textContent = errorText;
         });
     } else {
-      alert("Данные не валидны!");
+      // alert("Данные не валидны!");
 
       form.append(statusBlock);
       statusBlock.textContent = textError;
 
-      formElements.forEach((input) => {
-        input.value = "";
-      });
+      // formElements.forEach((input) => {
+      //   input.value = "";
+      // });
       setTimeout(() => {
         statusBlock.textContent = "";
       }, 2000);
