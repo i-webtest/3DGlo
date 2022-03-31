@@ -6,9 +6,38 @@ const sendForm = ({ formId, someElem = [] }) => {
   const loadText = "Загрузка...";
   const errorText = "Ошибка...";
   const successText = "Спасибо! Наш менеджер с вами свяжется!";
+  const textError = "Попробуйте ещё раз...";
+
+  statusBlock.style.color = "#fff";
 
   const validate = (list) => {
     let success = true;
+
+    list.forEach((item) => {
+      if (item.name === "user_name") {
+        if (item.value.length < 2) {
+          // item.style.border = "1px solid red";
+          success = false;
+        }
+      } else if (item.name === "user_phone") {
+        if (item.value.length < 6 || item.value.length > 16) {
+          success = false;
+          // item.style.border = "1px solid red";
+        }
+      } else if (item.name === "user_message") {
+        if (item.value.length < 2) {
+          success = false;
+          // item.style.border = "1px solid red";
+        }
+      } else if (item.name === "user_email") {
+        if (item.value.length === 0) {
+          success = false;
+          // item.style.border = "1px solid red";
+        }
+      } else {
+        success = true;
+      }
+    });
 
     // list.forEach((input) => {
     //   if (!input.classList.contains("success")) {
@@ -51,8 +80,6 @@ const sendForm = ({ formId, someElem = [] }) => {
       }
     });
 
-    console.log("sub");
-
     if (validate(formElements)) {
       sendData(formBody)
         .then((data) => {
@@ -61,12 +88,25 @@ const sendForm = ({ formId, someElem = [] }) => {
           formElements.forEach((input) => {
             input.value = "";
           });
+          setInterval(() => {
+            statusBlock.textContent = "";
+          }, 3000);
         })
         .catch((error) => {
           statusBlock.textContent = errorText;
         });
     } else {
       alert("Данные не валидны!");
+
+      form.append(statusBlock);
+      statusBlock.textContent = textError;
+
+      formElements.forEach((input) => {
+        input.value = "";
+      });
+      setTimeout(() => {
+        statusBlock.textContent = "";
+      }, 2000);
     }
   };
 

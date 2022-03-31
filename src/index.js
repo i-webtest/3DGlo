@@ -8,6 +8,7 @@ import validation from "./modules/validation";
 import tabs from "./modules/tabs";
 import slider from "./modules/slider";
 import sendForm from "./modules/sendForm";
+import maskPhone from "./modules/maskPhone";
 
 timer("24 march 2022");
 menu();
@@ -43,3 +44,4 @@ sendForm({
     },
   ],
 });
+maskPhone();
